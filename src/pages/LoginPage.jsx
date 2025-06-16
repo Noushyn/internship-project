@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../Redux/authSlice'
 
-function Login() {
+function LoginPage() {
 
 const navigate = useNavigate();
 const dispatch = useDispatch();
@@ -24,10 +24,11 @@ const dispatch = useDispatch();
       alert('ایمیل یا رمز عبور اشتباه است');
     }
     
-  };
+  }; 
 
   return (
-    <Box 
+    <>
+        <Box 
       display="flex" 
       justifyContent="center" 
       alignItems="center" 
@@ -86,8 +87,10 @@ const dispatch = useDispatch();
         </form>
       </Paper>
     </Box>
+    </>
+
   );
 
 }
 
-export default Login;
+export default LoginPage;
