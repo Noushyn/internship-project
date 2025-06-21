@@ -1,0 +1,35 @@
+{
+  "charts": {
+    "lineData": {
+      "labels": ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
+      "datasets": [
+        {
+          "label": "بازدیدها",
+          "data": [30, 50, 40, 70, 60],
+          "borderColor": "rgba(75,192,192,1)",
+          "fill": false
+        }
+      ]
+    },
+    "barData": {
+      "labels": ["محصول ۱", "محصول ۲", "محصول ۳"],
+      "datasets": [
+        {
+          "label": "تعداد فروش",
+          "data": [12, 19, 3],
+          "backgroundColor": ["#ff6384", "#36a2eb", "#ffce56"]
+        }
+      ]
+    },
+    "pieData": {
+      "labels": ["Chrome", "Firefox", "Safari"],
+      "datasets": [
+        {
+          "label": "مرورگرها",
+          "data": [55, 25, 20],
+          "backgroundColor": ["#4bc0c0", "#ff9f40", "#9966ff"]
+        }
+      ]
+    }
+  }
+}

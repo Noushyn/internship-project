@@ -1,40 +1,51 @@
 import { TextField, Button, Box, Typography, Paper } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
+import { z } from 'zod';
 
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../Redux/authSlice'
+import { loginUser } from '../Store/authSlice';
+import Navbar from '../components/Navbar';
+
+
+const loginSchema = z.object({
+  email: z.string()
+    .nonempty("ایمیل الزامی است")
+    .email("ایمیل معتبر نیست"),
+  password: z.string()
+    .nonempty("رمز عبور الزامی است")
+    .min(6, "رمز باید حداقل ۶ کاراکتر باشد"),
+});
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const navigate = useNavigate();
-const dispatch = useDispatch();
 
- const { register, handleSubmit, formState: { errors } } = useForm();
+const {
+  register,
+  handleSubmit,
+  formState: { errors },} = useForm({
+  resolver: zodResolver(loginSchema),
+});
 
-  const onSubmit = (data) => {
-    console.log('Login Data:', data);
-      const validEmail = 'test1@example.com';
-      const validPassword = '123456';
+const onSubmit = (data) => {
+  dispatch(loginUser({ email: data.email }));
+  navigate('/dashboard');
+};
 
-    if (data.email === validEmail && data.password === validPassword) {
-      dispatch(loginUser({ email: data.email }));
-      navigate('/dashboard');
-    } else {
-      alert('ایمیل یا رمز عبور اشتباه است');
-    }
-    
-  }; 
 
   return (
     <>
+    <Navbar />
         <Box 
+
       display="flex" 
       justifyContent="center" 
       alignItems="center" 
-      minHeight="100vh" 
+      minHeight="calc(100vh - 64px)" 
       minWidth="100vw"
-      bgcolor="#f5f5f5"
     >
       <Paper elevation={3} sx={{ p: 4, width: 300 }}>
         <Typography variant="h5" gutterBottom align="center">
@@ -47,13 +58,7 @@ const dispatch = useDispatch();
             variant="outlined" 
             fullWidth 
             margin="normal"
-            {...register("email", { 
-              required: "ایمیل الزامی است", 
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "ایمیل معتبر نیست"
-              }
-            })}
+            {...register("email")}
             error={!!errors.email}
             helperText={errors.email?.message}
           />
@@ -64,13 +69,7 @@ const dispatch = useDispatch();
             variant="outlined" 
             fullWidth 
             margin="normal"
-            {...register("password", { 
-              required: "رمز عبور الزامی است", 
-              minLength: {
-                value: 6,
-                message: "رمز باید حداقل ۶ کاراکتر باشد"
-              }
-            })}
+            {...register("password")}
             error={!!errors.password}
             helperText={errors.password?.message}
           />
@@ -88,9 +87,7 @@ const dispatch = useDispatch();
       </Paper>
     </Box>
     </>
-
   );
-
 }
 
 export default LoginPage;

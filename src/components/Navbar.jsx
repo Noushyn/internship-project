@@ -19,10 +19,12 @@ const Navbar = () => {
 >
   Login
 </Button>
-          <Button variant="outlined" color="inherit">Sign Up</Button>
                   <Button color="inherit" component={Link} to="/dashboard">
           Dashboard
         </Button>
+          <Button color="inherit">Users</Button>
+          <Button color="inherit">products</Button>
+
         </Box>
       </Toolbar>
     </AppBar>
