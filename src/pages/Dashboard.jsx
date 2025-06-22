@@ -1,5 +1,6 @@
 // src/components/Dashboard.jsx
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Line, Bar, Pie } from "react-chartjs-2";
 import Navbar from '../components/Navbar'
 import {
@@ -23,6 +24,13 @@ import {
   Container,
 } from "@mui/material";
 
+import {
+  fetchLineData,
+  fetchBarData,
+  fetchPieData,
+} from "../Store/chartSlice";
+
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -35,24 +43,18 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const [lineData, setLineData] = useState(null);
-  const [barData, setBarData] = useState(null);
-  const [pieData, setPieData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const { lineData, barData, pieData, loading, error } = useSelector(
+    (state) => state.charts
+    );
 
   useEffect(() => {
-    fetch("http://localhost:3000/charts")
-      .then((res) => res.json())
-      .then((data) => {
-        setLineData(data.lineData);
-        setBarData(data.barData);
-        setPieData(data.pieData);
-        setLoading(false);
-        console.log(data)
-      });
-  }, []);
+    dispatch(fetchLineData());
+    dispatch(fetchBarData());
+    dispatch(fetchPieData());
+  }, [dispatch]);
 
-  if (loading) {
+  if (loading || !lineData || !barData || !pieData) {
     return (
       <Box display="flex" justifyContent="center" mt={10}>
         <CircularProgress />

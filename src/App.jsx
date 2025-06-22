@@ -8,7 +8,6 @@ function App() {
 
   return (
     <Routes>
-
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<PrivateRoute>  <Dashboard /> </PrivateRoute>  } />
