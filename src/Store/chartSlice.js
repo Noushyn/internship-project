@@ -45,6 +45,7 @@ export const {
 } = chartSlice.actions;
 
 export default chartSlice.reducer;
+console.log(chartSlice)
 
 
 

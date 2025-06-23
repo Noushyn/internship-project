@@ -31,5 +31,22 @@
         }
       ]
     }
-  }
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "علی حیدری",
+      "email": "ali@example.com",
+      "city": "تهران",
+      "avatar": "/public/images/aliAvatar.jpg"
+    },
+    {
+      "id": 2,
+      "name": "سارا راد",
+      "email": "sara@example.com",
+      "city": "شیراز",
+      "avatar": "/public/images/saraAvatar.jpg"
+    }
+  ]
+
 }

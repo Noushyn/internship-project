@@ -66,14 +66,14 @@ const Dashboard = () => {
     <>
     <Navbar />
         <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom align="center">
+      <Typography variant="h4" gutterBottom align="center" sx={{ mb: 4 }}>
         داشبورد آماری
       </Typography>
 
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom align="right">
               نمودار خطی - بازدید ماهانه
             </Typography>
             <Line data={lineData} />
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom align="right">
               نمودار میله‌ای - فروش محصولات
             </Typography>
             <Bar data={barData} />
@@ -91,7 +91,7 @@ const Dashboard = () => {
 
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom align="right">
               نمودار دایره‌ای - مرورگرها
             </Typography>
             <Pie data={pieData} />

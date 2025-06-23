@@ -4,7 +4,8 @@ import authReducer from './authSlice';
 import storage from 'redux-persist/lib/storage'; // localStorage
 import { persistReducer, persistStore } from 'redux-persist';
 import { combineReducers } from 'redux';
-import chartReducer from "./chartSlice"
+import chartReducer from "./chartSlice";
+import usersReducer from "./users/usersSlice"
 
 const persistConfig = {
   key: 'root',
@@ -15,6 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   charts: chartReducer,
+  users: usersReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
