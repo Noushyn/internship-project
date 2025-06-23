@@ -1,52 +1,108 @@
 {
   "charts": {
     "lineData": {
-      "labels": ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
+      "labels": [
+        "فروردین",
+        "اردیبهشت",
+        "خرداد",
+        "تیر",
+        "مرداد"
+      ],
       "datasets": [
         {
           "label": "بازدیدها",
-          "data": [30, 50, 40, 70, 60],
+          "data": [
+            30,
+            50,
+            40,
+            70,
+            60
+          ],
           "borderColor": "rgba(75,192,192,1)",
           "fill": false
         }
       ]
     },
     "barData": {
-      "labels": ["محصول ۱", "محصول ۲", "محصول ۳"],
+      "labels": [
+        "محصول ۱",
+        "محصول ۲",
+        "محصول ۳"
+      ],
       "datasets": [
         {
           "label": "تعداد فروش",
-          "data": [12, 19, 3],
-          "backgroundColor": ["#ff6384", "#36a2eb", "#ffce56"]
+          "data": [
+            12,
+            19,
+            3
+          ],
+          "backgroundColor": [
+            "#ff6384",
+            "#36a2eb",
+            "#ffce56"
+          ]
         }
       ]
     },
     "pieData": {
-      "labels": ["Chrome", "Firefox", "Safari"],
+      "labels": [
+        "Chrome",
+        "Firefox",
+        "Safari"
+      ],
       "datasets": [
         {
           "label": "مرورگرها",
-          "data": [55, 25, 20],
-          "backgroundColor": ["#4bc0c0", "#ff9f40", "#9966ff"]
+          "data": [
+            55,
+            25,
+            20
+          ],
+          "backgroundColor": [
+            "#4bc0c0",
+            "#ff9f40",
+            "#9966ff"
+          ]
         }
       ]
     }
   },
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "علی حیدری",
       "email": "ali@example.com",
       "city": "تهران",
       "avatar": "/public/images/aliAvatar.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "سارا راد",
       "email": "sara@example.com",
       "city": "شیراز",
       "avatar": "/public/images/saraAvatar.jpg"
+    },
+    {
+      "id": "3",
+      "name": "امین حسینی",
+      "email": "amin@example.com",
+      "city": "یاسوج",
+      "avatar": "/public/images/aminAvatar.jpg"
+    },
+    {
+      "id": "4",
+      "name": "حسن اسلامی",
+      "email": "sara@example.com",
+      "city": "تهران",
+      "avatar": "/public/images/hasanAvatar.jpg"
+    },
+    {
+      "id": "6",
+      "name": "سوگل خلیق",
+      "email": "sogol@example.com",
+      "city": "تهران",
+      "avatar": "/public/images/sogolAvatar.jpg"
     }
   ]
-
 }

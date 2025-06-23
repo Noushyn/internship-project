@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../Store/users/usersSlice';
+import { fetchUsers , deleteUser } from '../Store/users/usersSlice';
 import {
   Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Paper, Avatar, CircularProgress, IconButton, Stack
@@ -15,6 +15,12 @@ const UsersTable = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
+  const handleDelete = (id) =>{
+    if(window.confirm('آیا از حذف این کاربر مطمئنی؟')){
+      dispatch(deleteUser(id))
+    }
+  }
 
   if (loading) return <CircularProgress />;
   if (error) return <p>Error: {error}</p>;
@@ -34,7 +40,7 @@ const UsersTable = () => {
         <TableBody>
           {users.map((user) => (
             <TableRow key={user.id}>
-              <TableCell align="right"><Avatar src={user.avatar} /></TableCell>
+              <TableCell align="right"><Avatar src={user.avatar} sx={{ width: 56, height: 56 }} /></TableCell>
               <TableCell align="center">{user.name}</TableCell>
               <TableCell align="center">{user.email}</TableCell>
               <TableCell align="center">{user.city}</TableCell>
