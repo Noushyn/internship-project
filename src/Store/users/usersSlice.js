@@ -25,6 +25,15 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (id, thunkA
   }
 });
 
+export const addUser = createAsyncThunk('users/addUser', async (newUser, thunkAPI) => {
+  try {
+    const res = await axios.post('http://localhost:3000/users', newUser);
+    return res.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
 const usersSlice = createSlice({
   name: 'users',
   initialState,
@@ -45,9 +54,12 @@ const usersSlice = createSlice({
       })
       .addCase(deleteUser.fulfilled, (state, action) => {
         state.users = state.users.filter(user => user.id !== action.payload);
-        console.log('deleted id:', action.payload);
-console.log('users before filter:', state.users);
-      });
+        // console.log('deleted id:', action.payload);
+        // console.log('users before filter:', state.users);
+      })
+      .addCase(addUser.fulfilled, (state, action) => {
+        state.users.push(action.payload);
+      })
   },
 });
 
