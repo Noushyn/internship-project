@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
@@ -9,72 +9,80 @@ const initialState = {
   error: null,
 };
 
+// Thunks
+export const fetchLineData = createAsyncThunk(
+  "charts/fetchLineData",
+  async (_, thunkAPI) => {
+    const res = await axios.get("http://localhost:3000/charts");
+    return res.data.lineData;
+  }
+);
+
+export const fetchBarData = createAsyncThunk(
+  "charts/fetchBarData",
+  async (_, thunkAPI) => {
+    const res = await axios.get("http://localhost:3000/charts");
+    return res.data.barData;
+  }
+);
+
+export const fetchPieData = createAsyncThunk(
+  "charts/fetchPieData",
+  async (_, thunkAPI) => {
+    const res = await axios.get("http://localhost:3000/charts");
+    return res.data.pieData;
+  }
+);
+
+// Slice
 const chartSlice = createSlice({
   name: "charts",
   initialState,
-  reducers: {
-    fetchStart: (state) => {
-      state.loading = true;
-      state.error = null;
-    },
-    fetchLineSuccess: (state, action) => {
-      state.lineData = action.payload;
-      state.loading = false;
-    },
-    fetchBarSuccess: (state, action) => {
-      state.barData = action.payload;
-      state.loading = false;
-    },
-    fetchPieSuccess: (state, action) => {
-      state.pieData = action.payload;
-      state.loading = false;
-    },
-    fetchFailure: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      // Line Chart
+      .addCase(fetchLineData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchLineData.fulfilled, (state, action) => {
+        state.lineData = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchLineData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      // Bar Chart
+      .addCase(fetchBarData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchBarData.fulfilled, (state, action) => {
+        state.barData = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchBarData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      // Pie Chart
+      .addCase(fetchPieData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchPieData.fulfilled, (state, action) => {
+        state.pieData = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchPieData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
-export const {
-  fetchStart,
-  fetchLineSuccess,
-  fetchBarSuccess,
-  fetchPieSuccess,
-  fetchFailure,
-} = chartSlice.actions;
-
 export default chartSlice.reducer;
-console.log(chartSlice)
-
-
-
-export const fetchLineData = () => async (dispatch) => {
-  dispatch(fetchStart());
-  try {
-    const res = await axios.get("http://localhost:3000/charts");
-    dispatch(fetchLineSuccess(res.data.lineData));
-  } catch (err) {
-    dispatch(fetchFailure(err.message));
-  }
-};
-
-export const fetchBarData = () => async (dispatch) => {
-  dispatch(fetchStart());
-  try {
-    const res = await axios.get("http://localhost:3000/charts");
-    dispatch(fetchBarSuccess(res.data.barData));
-  } catch (err) {
-    dispatch(fetchFailure(err.message));
-  }
-};
-
-export const fetchPieData = () => async (dispatch) => {
-  dispatch(fetchStart());
-  try {
-    const res = await axios.get("http://localhost:3000/charts");
-    dispatch(fetchPieSuccess(res.data.pieData));
-  } catch (err) {
-    dispatch(fetchFailure(err.message));
-  }
-};
