@@ -4,6 +4,8 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard'
 import PrivateRoute from './components/PrivateRoute';
 import Users from './pages/UsersPage';
+import ProductsPage from './pages/ProductsPage';
+import ManageProductsPage from "./pages/ManageProducts"
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<PrivateRoute>  <Dashboard /> </PrivateRoute>  } />
       <Route path="/users" element={<Users />} />
+      <Route path='/products' element={<ProductsPage />} />
+      <Route path="/manage-products" element={<ManageProductsPage />} />
       
     </Routes>
   )

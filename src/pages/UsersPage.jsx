@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import UsersTable from '../components/UsersTable';
 import Navbar from "../components/Navbar"
-import { addUser } from "../Store/users/usersSlice"
+import { addUser, updateUser } from "../Store/usersSlice"
 import UserForm from '../components/UserForm';
 
 import {
@@ -28,11 +28,18 @@ const modalStyle = {
 
 const UsersPage = () => {
   const dispatch = useDispatch();
+  const [editingUser, setEditingUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const handleAddUser = (userData) => {
     dispatch(addUser(userData));
     setShowModal(false);
+  };
+
+  const handleUpdateUser = (userData) => {
+    dispatch(updateUser(userData));
+    setShowModal(false);
+    setEditingUser(null);
   };
 
   return (
@@ -47,17 +54,39 @@ const UsersPage = () => {
         افزودن کاربر جدید
       </Button>
 
-      <Modal open={showModal} onClose={() => setShowModal(false)} dir='rtl'>
+      <UsersTable
+        onEdit={(user) => {
+          setEditingUser(user);
+          setShowModal(true);
+        }}
+      />
+
+
+
+    <Modal open={showModal} onClose={() => {
+        setShowModal(false);
+        setEditingUser(null);
+      }} dir='rtl'>
         <Box sx={modalStyle}>
-          <Typography variant="h6" gutterBottom>افزودن کاربر</Typography>
+          <Typography variant="h6" gutterBottom>
+            {editingUser ? 'ویرایش کاربر' : 'افزودن کاربر'}
+          </Typography>
           <UserForm
-            onSubmit={handleAddUser}
-            onCancel={() => setShowModal(false)}
+            onSubmit={editingUser ? handleUpdateUser : handleAddUser}
+            onCancel={() => {
+              setShowModal(false);
+              setEditingUser(null);
+            }}
+            defaultValues={editingUser || {
+              id: null,
+              name: '',
+              email: '',
+              city: '',
+              avatar: ''
+            }}
           />
         </Box>
-      </Modal>
-
-      <UsersTable />
+    </Modal>
     </Container>
     </>
   );

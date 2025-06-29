@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers , deleteUser } from '../Store/users/usersSlice';
+import { fetchUsers , deleteUser } from '../Store/usersSlice';
 import {
   Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Paper, Avatar, CircularProgress, IconButton, Stack
@@ -8,7 +8,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const UsersTable = () => {
+const UsersTable = ({ onEdit }) => {
   const dispatch = useDispatch();
   const { users, loading, error } = useSelector((state) => state.users);
 
@@ -46,9 +46,9 @@ const UsersTable = () => {
               <TableCell align="center">{user.city}</TableCell>
               <TableCell>
                 <Stack direction="row" spacing={1} justifyContent="center">
-                  <IconButton color="primary">
-                    <EditIcon />
-                  </IconButton>
+                  <IconButton color="primary" onClick={() => onEdit(user)}>
+                   <EditIcon />
+                 </IconButton>
                   <IconButton color="error" onClick={() => handleDelete(user.id)}>
                     <DeleteIcon />
                   </IconButton>

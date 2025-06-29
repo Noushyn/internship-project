@@ -34,6 +34,16 @@ export const addUser = createAsyncThunk('users/addUser', async (newUser, thunkAP
   }
 });
 
+export const updateUser = createAsyncThunk('users/updateUser', async (user, thunkAPI) => {
+  try {
+    const res = await axios.put(`http://localhost:3000/users/${user.id}`, user);
+    return res.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+
 const usersSlice = createSlice({
   name: 'users',
   initialState,
@@ -60,6 +70,14 @@ const usersSlice = createSlice({
       .addCase(addUser.fulfilled, (state, action) => {
         state.users.push(action.payload);
       })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        // console.log('Updated user payload:', action.payload);
+        const index = state.users.findIndex(u => u.id === action.payload.id);
+        if (index !== -1) {
+          state.users[index] = action.payload;
+        }
+      });
+      
   },
 });
 

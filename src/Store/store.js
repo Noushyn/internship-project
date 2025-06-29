@@ -5,7 +5,8 @@ import storage from 'redux-persist/lib/storage'; // localStorage
 import { persistReducer, persistStore } from 'redux-persist';
 import { combineReducers } from 'redux';
 import chartReducer from "./chartSlice";
-import usersReducer from "./users/usersSlice"
+import usersReducer from "./usersSlice";
+import productsReducer from "./productsSlice.js"
 
 const persistConfig = {
   key: 'root',
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   charts: chartReducer,
   users: usersReducer,
+  products: productsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

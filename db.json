@@ -74,35 +74,127 @@
       "name": "علی حیدری",
       "email": "ali@example.com",
       "city": "تهران",
-      "avatar": "/public/images/aliAvatar.jpg"
+      "avatar": "https://uploadkon.ir/uploads/e32128_25aliAvatar.jpg"
     },
     {
       "id": "2",
       "name": "سارا راد",
       "email": "sara@example.com",
       "city": "شیراز",
-      "avatar": "/public/images/saraAvatar.jpg"
+      "avatar": "https://uploadkon.ir/uploads/1a5928_25saraAvatar.jpg"
     },
     {
       "id": "3",
       "name": "امین حسینی",
       "email": "amin@example.com",
       "city": "یاسوج",
-      "avatar": "/public/images/aminAvatar.jpg"
+      "avatar": "https://uploadkon.ir/uploads/90cc28_25aminAvatar.jpg"
     },
     {
       "id": "4",
-      "name": "حسن اسلامی",
-      "email": "sara@example.com",
+      "name": "حسن ابراهیمی",
+      "email": "hasan@example.com",
       "city": "تهران",
-      "avatar": "/public/images/hasanAvatar.jpg"
+      "avatar": "https://uploadkon.ir/uploads/03cd28_25hasanAvatar.jpg"
     },
     {
       "id": "5",
-      "name": "سوگل خلیق",
+      "name": "سوگل خلیقی",
       "email": "sogol@example.com",
       "city": "تهران",
-      "avatar": "/public/images/sogolAvatar.jpg"
+      "avatar": "https://uploadkon.ir/uploads/2b1228_25sogolAvatar.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "هدفون بی‌سیم JBL",
+      "description": "صدای شفاف و با کیفیت، مناسب برای ورزش",
+      "category": "هدفون",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/487620e2936e1dd07238849a058fe472da39c1a5_1745824997.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+      "price": 950000,
+      "stock": 12
+    },
+    {
+      "id": 2,
+      "title": "ساعت هوشمند شیائومی",
+      "description": "مجهز به GPS و ضربان‌سنج",
+      "category": "ساعت",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/c460a87f2b9f6eb1dba30ecad40c3318de223d24_1724250091.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 1300000,
+      "stock": 7
+    },
+    {
+      "id": 3,
+      "title": "هندزفری بلوتوث سامسونگ",
+      "description": "طراحی ارگونومیک، باتری با دوام",
+      "category": "هندزفری",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/0fafb8455368d421ad2e4ba58b1b4ae600e89c11_1751033723.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 2300000,
+      "stock": 25
+    },
+    {
+      "id": 4,
+      "title": "کیبورد گیمینگ ردراگون",
+      "description": "نورپردازی RGB با کلیدهای مکانیکی مقاوم",
+      "category": "لوازم جانبی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/0d6dfc1315a67b7c1ef051184e941c7602ab8787_1723382392.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 1180000,
+      "stock": 10
+    },
+    {
+      "id": 5,
+      "title": "ماوس بی‌سیم لاجیتک",
+      "description": "طراحی ساده با دقت بالا و باتری قابل تعویض",
+      "category": "لوازم جانبی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/d83de41a1d1c18cb64e39ed43da1830d3e75c5ba_1731658995.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 420000,
+      "stock": 18
+    },
+    {
+      "id": 6,
+      "title": "پاوربانک 20000 میلی‌آمپر روموس",
+      "description": "شارژ سریع با دو خروجی USB",
+      "category": "پاوربانک",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/deeae755b774f0d5709429f8e2dc262725a075a6_1677864663.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 670000,
+      "stock": 9
+    },
+    {
+      "id": 7,
+      "title": "مانیتور ۲۴ اینچ سامسونگ",
+      "description": "رزولوشن Full HD با نرخ تازه‌سازی ۷۵ هرتز",
+      "category": "نمایشگر",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/239279e0cb157eb4d4cccb69b621622aa404f30f_1683556155.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 3650000,
+      "stock": 5
+    },
+    {
+      "id": 8,
+      "title": "هارد اکسترنال 1 ترابایت وسترن دیجیتال",
+      "description": "پرتابل و مقاوم در برابر ضربه",
+      "category": "ذخیره‌سازی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/119150092.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 1580000,
+      "stock": 14
+    },
+    {
+      "id": 9,
+      "title": "کاور محافظ گوشی آیفون",
+      "description": "ضد ضربه با طراحی شفاف",
+      "category": "لوازم جانبی موبایل",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/b06a20f8a0104217ab4f3d75cad655c69e62d921_1634050605.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 195000,
+      "stock": 30
+    },
+    {
+      "id": 10,
+      "title": "اسپیکر بلوتوث قابل حمل",
+      "description": "صدای پرقدرت، ضدآب و مناسب فضای باز",
+      "category": "اسپیکر",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/a04855b7c2b3ba775546680521e77f72bdb1e10d_1660457250.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 880000,
+      "stock": 6
     }
   ]
 }

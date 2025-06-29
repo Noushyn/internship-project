@@ -31,16 +31,21 @@ const {
 });
 
 const onSubmit = (data) => {
-  dispatch(loginUser({ email: data.email }));
-  navigate('/dashboard');
+  const { email, password } = data;
+
+  let role = 'user';
+  if(email === 'admin@example.com' && password === '123456'){
+    role = 'admin';
+  }
+  dispatch(loginUser({ email , role}));
+  navigate('/products');
 };
 
 
   return (
     <>
     <Navbar />
-        <Box 
-
+        <Box
       display="flex" 
       justifyContent="center" 
       alignItems="center" 
