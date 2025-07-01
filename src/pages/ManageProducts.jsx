@@ -182,62 +182,64 @@ const ManageProducts = () => {
           <Typography sx={{ mt: 4 }} variant="h6" gutterBottom>
             لیست محصولات
           </Typography>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                  نام محصول
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                  تصویر
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                  قیمت
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                  دسته بندی
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                  موجودی
-                </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
-                  عملیات
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {products &&
-                products.map((p) => (
-                  <TableRow key={p.id}>
-                    <TableCell align="center">{p.title}</TableCell>
-                    <TableCell align="center">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        style={{ width: 50, height: 50, objectFit: "cover" }}
-                      />
-                    </TableCell>
-                    <TableCell align="center">
-                      {p.price.toLocaleString()} تومان
-                    </TableCell>
-                    <TableCell align="center">{p.category}</TableCell>
-                    <TableCell align="center">{p.stock}</TableCell>
-                    <TableCell align="center">
-                      <Button size="small" onClick={() => handleEdit(p)}>
-                        ویرایش
-                      </Button>
-                      <Button
-                        size="small"
-                        color="error"
-                        onClick={() => handleDelete(p.id)}
-                      >
-                        حذف
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
+          <Box sx={{ maxHeight: 500, overflowY: "auto", mb: 4 }}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    نام محصول
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    تصویر
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    قیمت
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    دسته بندی
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    موجودی
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                    عملیات
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {products &&
+                  products.map((p) => (
+                    <TableRow key={p.id}>
+                      <TableCell align="center">{p.title}</TableCell>
+                      <TableCell align="center">
+                        <img
+                          src={p.image}
+                          alt={p.title}
+                          style={{ width: 50, height: 50, objectFit: "cover" }}
+                        />
+                      </TableCell>
+                      <TableCell align="center">
+                        {p.price.toLocaleString()} تومان
+                      </TableCell>
+                      <TableCell align="center">{p.category}</TableCell>
+                      <TableCell align="center">{p.stock}</TableCell>
+                      <TableCell align="center">
+                        <Button size="small" onClick={() => handleEdit(p)}>
+                          ویرایش
+                        </Button>
+                        <Button
+                          size="small"
+                          color="error"
+                          onClick={() => handleDelete(p.id)}
+                        >
+                          حذف
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </Box>
 
           <EditProductModal
             open={editModalOpen}
