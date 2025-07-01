@@ -46,11 +46,7 @@ const ProductsPage = () => {
         <Grid container spacing={3}>
           {products &&
             products.map((product) => (
-              <Grid
-                item
-                size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
-                key={product.id}
-              >
+              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={product.id}>
                 <Box sx={{ height: "100%", display: "flex" }}>
                   <Card
                     sx={{
