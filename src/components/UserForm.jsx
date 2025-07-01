@@ -1,16 +1,19 @@
-import { useEffect } from 'react';
-import { TextField, Button, Box, Stack } from '@mui/material';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-
+import { useEffect } from "react";
+import { TextField, Button, Box, Stack } from "@mui/material";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const userSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, "نام الزامی است"),
   email: z.string().email("ایمیل نامعتبر است"),
   city: z.string().min(1, "شهر الزامی است"),
-  avatar: z.string().url("آدرس تصویر معتبر وارد کنید").optional().or(z.literal("")),
+  avatar: z
+    .string()
+    .url("آدرس تصویر معتبر وارد کنید")
+    .optional()
+    .or(z.literal("")),
 });
 
 const UserForm = ({ onSubmit, onCancel, defaultValues }) => {
@@ -18,7 +21,7 @@ const UserForm = ({ onSubmit, onCancel, defaultValues }) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm({
     resolver: zodResolver(userSchema),
     defaultValues,
@@ -35,7 +38,7 @@ const UserForm = ({ onSubmit, onCancel, defaultValues }) => {
   };
 
   return (
-    <Box sx={{ mt: 2, maxWidth: 400}} dir="rtl">
+    <Box sx={{ mt: 2, maxWidth: 400 }} dir="rtl">
       <form onSubmit={handleSubmit(onFormSubmit)}>
         <input type="hidden" {...register("id")} />
         <Stack spacing={2}>
@@ -63,9 +66,13 @@ const UserForm = ({ onSubmit, onCancel, defaultValues }) => {
             error={!!errors.avatar}
             helperText={errors.avatar?.message}
           />
-          <Stack direction="row" sx={{ gap: 2 }}>
-            <Button variant="contained" type="submit">افزودن</Button>
-            <Button variant="outlined" color="secondary" onClick={onCancel}>انصراف</Button>
+          <Stack direction="row" sx={{ gap: 2 }} justifyContent={"flex-end"}>
+            <Button variant="contained" type="submit">
+              افزودن
+            </Button>
+            <Button variant="outlined" color="secondary" onClick={onCancel}>
+              انصراف
+            </Button>
           </Stack>
         </Stack>
       </form>
@@ -74,7 +81,3 @@ const UserForm = ({ onSubmit, onCancel, defaultValues }) => {
 };
 
 export default UserForm;
-
-
-
-
