@@ -1,17 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './authSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./authSlice";
 
-import storage from 'redux-persist/lib/storage'; // localStorage
-import { persistReducer, persistStore } from 'redux-persist';
-import { combineReducers } from 'redux';
+import storage from "redux-persist/lib/storage"; // localStorage
+import { persistReducer, persistStore } from "redux-persist";
+import { combineReducers } from "redux";
 import chartReducer from "./chartSlice";
 import usersReducer from "./usersSlice";
-import productsReducer from "./productsSlice.js"
+import productsReducer from "./productsSlice.js";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-  whitelist: ['auth'],
+  whitelist: ["auth"],
 };
 
 const rootReducer = combineReducers({
@@ -23,7 +23,6 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
@@ -31,6 +30,5 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
-
 
 export const persistor = persistStore(store);

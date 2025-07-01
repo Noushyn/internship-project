@@ -21,27 +21,26 @@ const Navbar = () => {
           )}
 
           {user && (
-              <Button component={Link} to="/products" color="inherit">
-                محصولات
-              </Button>
-            )}
-            <>
-            {user?.role === "admin" && 
-            <>
-              <Button component={Link} to="/dashboard" color="inherit">
-                داشبورد
-              </Button>
-              <Button component={Link} to="/users" color="inherit">
-                کاربران
-              </Button>
+            <Button component={Link} to="/products" color="inherit">
+              محصولات
+            </Button>
+          )}
+          <>
+            {user?.role === "admin" && (
+              <>
+                <Button component={Link} to="/dashboard" color="inherit">
+                  داشبورد
+                </Button>
+                <Button component={Link} to="/users" color="inherit">
+                  کاربران
+                </Button>
 
-              <Button component={Link} to="/manage-products" color="inherit">
+                <Button component={Link} to="/manage-products" color="inherit">
                   مدیریت محصولات
-              </Button>
-            </>
-            }
-            </>
-          
+                </Button>
+              </>
+            )}
+          </>
         </Box>
       </Toolbar>
     </AppBar>
@@ -49,4 +48,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

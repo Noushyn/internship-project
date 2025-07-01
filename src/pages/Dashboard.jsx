@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Line, Bar, Pie } from "react-chartjs-2";
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -24,12 +24,7 @@ import {
   Container,
 } from "@mui/material";
 
-import {
-  fetchLineData,
-  fetchBarData,
-  fetchPieData,
-} from "../Store/chartSlice";
-
+import { fetchLineData, fetchBarData, fetchPieData } from "../Store/chartSlice";
 
 ChartJS.register(
   CategoryScale,
@@ -46,7 +41,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const { lineData, barData, pieData, loading, error } = useSelector(
     (state) => state.charts
-    );
+  );
 
   useEffect(() => {
     dispatch(fetchLineData());
@@ -64,43 +59,42 @@ const Dashboard = () => {
 
   return (
     <>
-    <Navbar />
-        <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ mb: 4 }}>
-        داشبورد آماری
-      </Typography>
+      <Navbar />
+      <Container sx={{ mt: 4 }}>
+        <Typography variant="h4" gutterBottom align="center" sx={{ mb: 4 }}>
+          داشبورد آماری
+        </Typography>
 
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom align="right">
-              نمودار خطی - بازدید ماهانه
-            </Typography>
-            <Line data={lineData} />
-          </Paper>
-        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Paper elevation={3} sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom align="right">
+                نمودار خطی - بازدید ماهانه
+              </Typography>
+              <Line data={lineData} />
+            </Paper>
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom align="right">
-              نمودار میله‌ای - فروش محصولات
-            </Typography>
-            <Bar data={barData} />
-          </Paper>
-        </Grid>
+          <Grid item xs={12} md={6}>
+            <Paper elevation={3} sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom align="right">
+                نمودار میله‌ای - فروش محصولات
+              </Typography>
+              <Bar data={barData} />
+            </Paper>
+          </Grid>
 
-        <Grid item xs={12} md={6}>
-          <Paper elevation={3} sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom align="right">
-              نمودار دایره‌ای - مرورگرها
-            </Typography>
-            <Pie data={pieData} />
-          </Paper>
+          <Grid item xs={12} md={6}>
+            <Paper elevation={3} sx={{ p: 2 }}>
+              <Typography variant="h6" gutterBottom align="right">
+                نمودار دایره‌ای - مرورگرها
+              </Typography>
+              <Pie data={pieData} />
+            </Paper>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>    
+      </Container>
     </>
-
   );
 };
 

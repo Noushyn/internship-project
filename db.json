@@ -1,69 +1,33 @@
 {
   "charts": {
     "lineData": {
-      "labels": [
-        "فروردین",
-        "اردیبهشت",
-        "خرداد",
-        "تیر",
-        "مرداد"
-      ],
+      "labels": ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
       "datasets": [
         {
           "label": "بازدیدها",
-          "data": [
-            30,
-            50,
-            40,
-            70,
-            60
-          ],
+          "data": [30, 50, 40, 70, 60],
           "borderColor": "rgba(75,192,192,1)",
           "fill": false
         }
       ]
     },
     "barData": {
-      "labels": [
-        "محصول ۱",
-        "محصول ۲",
-        "محصول ۳"
-      ],
+      "labels": ["محصول ۱", "محصول ۲", "محصول ۳"],
       "datasets": [
         {
           "label": "تعداد فروش",
-          "data": [
-            12,
-            19,
-            3
-          ],
-          "backgroundColor": [
-            "#ff6384",
-            "#36a2eb",
-            "#ffce56"
-          ]
+          "data": [12, 19, 3],
+          "backgroundColor": ["#ff6384", "#36a2eb", "#ffce56"]
         }
       ]
     },
     "pieData": {
-      "labels": [
-        "Chrome",
-        "Firefox",
-        "Safari"
-      ],
+      "labels": ["Chrome", "Firefox", "Safari"],
       "datasets": [
         {
           "label": "مرورگرها",
-          "data": [
-            55,
-            25,
-            20
-          ],
-          "backgroundColor": [
-            "#4bc0c0",
-            "#ff9f40",
-            "#9966ff"
-          ]
+          "data": [55, 25, 20],
+          "backgroundColor": ["#4bc0c0", "#ff9f40", "#9966ff"]
         }
       ]
     }
@@ -127,7 +91,7 @@
       "category": "هدفون",
       "image": "https://dkstatics-public.digikala.com/digikala-products/487620e2936e1dd07238849a058fe472da39c1a5_1745824997.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
       "price": 950000,
-      "stock": 11
+      "stock": 9
     },
     {
       "id": "2",
@@ -145,7 +109,7 @@
       "category": "هندزفری",
       "image": "https://dkstatics-public.digikala.com/digikala-products/0fafb8455368d421ad2e4ba58b1b4ae600e89c11_1751033723.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
       "price": 2300000,
-      "stock": 25
+      "stock": 23
     },
     {
       "id": "4",

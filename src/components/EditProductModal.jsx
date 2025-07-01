@@ -76,6 +76,7 @@ const EditProductModal = ({ open, product, onClose }) => {
 
   const onSubmit = async (data) => {
     const result = await dispatch(updateProduct({ id: product.id, ...data }));
+    console.log(product.id, data);
     if (updateProduct.fulfilled.match(result)) {
       toast.success("محصول با موفقیت ویرایش شد");
       onClose();
