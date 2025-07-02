@@ -1,33 +1,69 @@
 {
   "charts": {
     "lineData": {
-      "labels": ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
+      "labels": [
+        "فروردین",
+        "اردیبهشت",
+        "خرداد",
+        "تیر",
+        "مرداد"
+      ],
       "datasets": [
         {
           "label": "بازدیدها",
-          "data": [30, 50, 40, 70, 60],
+          "data": [
+            30,
+            50,
+            40,
+            70,
+            60
+          ],
           "borderColor": "rgba(75,192,192,1)",
           "fill": false
         }
       ]
     },
     "barData": {
-      "labels": ["محصول ۱", "محصول ۲", "محصول ۳"],
+      "labels": [
+        "محصول ۱",
+        "محصول ۲",
+        "محصول ۳"
+      ],
       "datasets": [
         {
           "label": "تعداد فروش",
-          "data": [12, 19, 3],
-          "backgroundColor": ["#ff6384", "#36a2eb", "#ffce56"]
+          "data": [
+            12,
+            19,
+            3
+          ],
+          "backgroundColor": [
+            "#ff6384",
+            "#36a2eb",
+            "#ffce56"
+          ]
         }
       ]
     },
     "pieData": {
-      "labels": ["Chrome", "Firefox", "Safari"],
+      "labels": [
+        "Chrome",
+        "Firefox",
+        "Safari"
+      ],
       "datasets": [
         {
           "label": "مرورگرها",
-          "data": [55, 25, 20],
-          "backgroundColor": ["#4bc0c0", "#ff9f40", "#9966ff"]
+          "data": [
+            55,
+            25,
+            20
+          ],
+          "backgroundColor": [
+            "#4bc0c0",
+            "#ff9f40",
+            "#9966ff"
+          ]
         }
       ]
     }
@@ -86,7 +122,7 @@
   "products": [
     {
       "id": "1",
-      "title": "هدفون بی‌سیم JBL",
+      "title": "JBL",
       "description": "صدای شفاف و با کیفیت، مناسب برای ورزش",
       "category": "هدفون",
       "image": "https://dkstatics-public.digikala.com/digikala-products/487620e2936e1dd07238849a058fe472da39c1a5_1745824997.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",

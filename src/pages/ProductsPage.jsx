@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../Store/productsSlice";
+import { fetchProducts, fetchProductsBySearch } from "../Store/productsSlice";
 import {
   Grid,
   Card,
@@ -11,11 +11,18 @@ import {
   CircularProgress,
   Container,
   Box,
+  TextField,
+  Stack,
+  Button,
+  InputAdornment,
 } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -39,9 +46,61 @@ const ProductsPage = () => {
     <>
       <Navbar />
       <Container sx={{ mt: 4 }} dir="rtl">
-        <Typography variant="h4" gutterBottom align="center">
-          محصولات
-        </Typography>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={4}
+        >
+          <Typography variant="h4" gutterBottom align="center">
+            محصولات
+          </Typography>
+          <Stack direction="row" sx={{ width: "fit-content" }}>
+            <TextField
+              size="small"
+              variant="outlined"
+              value={searchTerm}
+              placeholder="جستجو محصولات..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  dispatch(fetchProductsBySearch(searchTerm));
+                }
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                width: "300px",
+                "& .MuiOutlinedInput-root": {
+                  borderTopRightRadius: "20px",
+                  borderBottomRightRadius: "20px",
+                  borderTopLeftRadius: 0,
+                  borderBottomLeftRadius: 0,
+                },
+              }}
+            />
+            <Button
+              variant="contained"
+              onClick={() => {
+                dispatch(fetchProductsBySearch(searchTerm));
+              }}
+              sx={{
+                borderTopLeftRadius: "20px",
+                borderBottomLeftRadius: "20px",
+                borderTopRightRadius: 0,
+                borderBottomRightRadius: 0,
+              }}
+            >
+              جستجو
+            </Button>
+          </Stack>
+        </Stack>
 
         <Grid container spacing={3}>
           {products &&

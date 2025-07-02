@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { act } from "react";
 
 const initialState = {
   users: [],
@@ -62,6 +63,21 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
+export const fetchProductsBySearch = createAsyncThunk(
+  "products/fetchBySearch",
+  async (searchTerm, thunkAPI) => {
+    try {
+      const query = encodeURIComponent(searchTerm);
+      const response = await axios.get(
+        `http://localhost:3000/products?title=${query}`
+      );
+      return response.data;
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
 const productsSlice = createSlice({
   name: "products",
   initialState,
@@ -92,7 +108,7 @@ const productsSlice = createSlice({
       .addCase(deleteProduct.rejected, (state, action) => {
         state.error = action.payload;
       })
-      .addCase(updateProduct.pending, (state, action) => {
+      .addCase(updateProduct.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -108,6 +124,18 @@ const productsSlice = createSlice({
       .addCase(updateProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchProductsBySearch.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductsBySearch.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = action.payload;
+      })
+      .addCase(fetchProductsBySearch.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || "خطای بارگذاری محصولات";
       });
   },
 });
