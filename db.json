@@ -121,7 +121,7 @@
   ],
   "products": [
     {
-      "id": "1",
+      "id": 1,
       "title": "JBL",
       "description": "صدای شفاف و با کیفیت، مناسب برای ورزش",
       "category": "هدفون",
@@ -130,7 +130,7 @@
       "stock": 9
     },
     {
-      "id": "2",
+      "id": 2,
       "title": "ساعت هوشمند شیائومی",
       "description": "مجهز به GPS و ضربان‌سنج",
       "category": "ساعت",
@@ -139,7 +139,7 @@
       "stock": 7
     },
     {
-      "id": "3",
+      "id": 3,
       "title": "هندزفری بلوتوث سامسونگ",
       "description": "طراحی ارگونومیک، باتری با دوام",
       "category": "هندزفری",
@@ -148,7 +148,7 @@
       "stock": 23
     },
     {
-      "id": "4",
+      "id": 4,
       "title": "کیبورد گیمینگ ردراگون",
       "description": "نورپردازی RGB با کلیدهای مکانیکی مقاوم",
       "category": "لوازم جانبی",
@@ -157,7 +157,7 @@
       "stock": 10
     },
     {
-      "id": "5",
+      "id": 5,
       "title": "ماوس بی‌سیم لاجیتک",
       "description": "طراحی ساده با دقت بالا و باتری قابل تعویض",
       "category": "لوازم جانبی",
@@ -166,7 +166,7 @@
       "stock": 12
     },
     {
-      "id": "6",
+      "id": 6,
       "title": "پاوربانک 20000 میلی‌آمپر روموس",
       "description": "شارژ سریع با دو خروجی USB",
       "category": "پاوربانک",
@@ -175,7 +175,7 @@
       "stock": 9
     },
     {
-      "id": "7",
+      "id": 7,
       "title": "مانیتور ۲۴ اینچ سامسونگ",
       "description": "رزولوشن Full HD با نرخ تازه‌سازی ۷۵ هرتز",
       "category": "نمایشگر",
@@ -184,16 +184,16 @@
       "stock": 6
     },
     {
-      "id": "8",
+      "id": 8,
       "title": "هارد اکسترنال 1 ترابایت وسترن دیجیتال",
       "description": "پرتابل و مقاوم در برابر ضربه",
       "category": "ذخیره‌سازی",
       "image": "https://dkstatics-public.digikala.com/digikala-products/119150092.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
       "price": 1580000,
-      "stock": 14
+      "stock": 11
     },
     {
-      "id": "9",
+      "id": 9,
       "title": "کاور محافظ گوشی آیفون",
       "description": "ضد ضربه با طراحی شفاف",
       "category": "لوازم جانبی موبایل",
@@ -202,7 +202,7 @@
       "stock": 30
     },
     {
-      "id": "10",
+      "id": 10,
       "title": "لپ‌تاپ Asus VivoBook",
       "description": "پردازنده Core i5، رم 8GB، مناسب برای کارهای روزمره",
       "category": "لپ‌تاپ",
@@ -211,7 +211,7 @@
       "stock": 5
     },
     {
-      "id": "11",
+      "id": 11,
       "title": "مانیتور سامسونگ 24 اینچ",
       "description": "رزولوشن Full HD، نرخ تازه‌سازی 75Hz",
       "category": "مانیتور",
@@ -220,13 +220,112 @@
       "stock": 3
     },
     {
-      "id": "44eb",
-      "title": "محصول تست",
-      "description": "محصول تست محصول تست محصول تست",
-      "category": "هدفون",
-      "image": "https://dkstatics-public.digikala.com/digikala-products/487620e2936e1dd07238849a058fe472da39c1a5_1745824997.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
-      "price": 2000000,
-      "stock": 123
+      "id": 12,
+      "title": "هدست بلوتوث وریتی",
+      "description": "طراحی سبک با کیفیت صدای عالی و عمر باتری بالا",
+      "category": "صوتی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/b34f578ba3a4c84bf91aecbe8878d69715d3c9a7_1730539869.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 1780000,
+      "stock": 17
+    },
+    {
+      "id": 13,
+      "title": "کیبورد وایرلس تسکو",
+      "description": "اتصال پایدار با طراحی ارگونومیک",
+      "category": "تجهیزات اداری",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/2649184.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 620000,
+      "stock": 8
+    },
+    {
+      "id": 14,
+      "title": "موس گیمینگ RGB",
+      "description": "دقت بالا با نورپردازی چند رنگ",
+      "category": "گیمینگ",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/9943607b60e8ec283900c7b1368404e22471e873_1729088312.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 385000,
+      "stock": 19
+    },
+    {
+      "id": 15,
+      "title": "ایرفون سیمی فیلیپس",
+      "description": "صدای قدرتمند و طراحی کلاسیک",
+      "category": "صوتی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/4ee2a317e8c503aa44a572caea635b993c410167_1748798335.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 315000,
+      "stock": 15
+    },
+    {
+      "id": 16,
+      "title": "ساعت دیجیتال اسپرت",
+      "description": "دارای کرنومتر و نمایش تاریخ",
+      "category": "اکسسوری",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/92c38379e65b620d68848774c9bf34bc39608b1b_1706534697.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 820000,
+      "stock": 11
+    },
+    {
+      "id": 17,
+      "title": "هدفون بلوتوثی باسیم",
+      "description": "پشتیبانی از کارت حافظه و FM",
+      "category": "لوازم صوتی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/0fafb8455368d421ad2e4ba58b1b4ae600e89c11_1751033723.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 495000,
+      "stock": 21
+    },
+    {
+      "id": 18,
+      "title": "کیبورد سیمی دل",
+      "description": "طراحی کلاسیک و مقاوم برای تایپ طولانی",
+      "category": "رایانه",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/0d6dfc1315a67b7c1ef051184e941c7602ab8787_1723382392.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 280000,
+      "stock": 10
+    },
+    {
+      "id": 19,
+      "title": "موس اپتیکال USB",
+      "description": "سازگار با ویندوز و مک",
+      "category": "رایانه",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/d83de41a1d1c18cb64e39ed43da1830d3e75c5ba_1731658995.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 245000,
+      "stock": 7
+    },
+    {
+      "id": 20,
+      "title": "پاوربانک شیائومی",
+      "description": "فست شارژ با ظرفیت بالا و وزن کم",
+      "category": "شارژر",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/deeae755b774f0d5709429f8e2dc262725a075a6_1677864663.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 890000,
+      "stock": 13
+    },
+    {
+      "id": 21,
+      "title": "نمایشگر ۲۲ اینچ ال‌جی",
+      "description": "زاویه دید گسترده و طراحی باریک",
+      "category": "نمایشگر",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/239279e0cb157eb4d4cccb69b621622aa404f30f_1683556155.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 4320000,
+      "stock": 4
+    },
+    {
+      "id": 22,
+      "title": "هارد اکسترنال سیلیکون پاور",
+      "description": "ضد ضربه و مقاوم در برابر رطوبت",
+      "category": "ذخیره‌سازی",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/119150092.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 1740000,
+      "stock": 20
+    },
+    {
+      "id": 23,
+      "title": "قاب ژله‌ای گوشی سامسونگ",
+      "description": "سبک، شفاف و ضد لک",
+      "category": "اکسسوری موبایل",
+      "image": "https://dkstatics-public.digikala.com/digikala-products/b06a20f8a0104217ab4f3d75cad655c69e62d921_1634050605.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80",
+      "price": 115000,
+      "stock": 27
     }
   ]
 }

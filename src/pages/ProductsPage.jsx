@@ -17,16 +17,23 @@ import {
   InputAdornment,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import Pagination from "@mui/material/Pagination";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
-  const { products, loading, error } = useSelector((state) => state.products);
+  const { products, total, loading, error } = useSelector(
+    (state) => state.products
+  );
 
+  const [page, setPage] = useState(1);
+  const limit = 8;
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts({ page, limit }));
+  }, [dispatch, page]);
+
+  const pageCount = Math.ceil(total / limit);
 
   if (loading) {
     return (
@@ -41,6 +48,11 @@ const ProductsPage = () => {
       <Typography color="error">خطا در دریافت اطلاعات: {error}</Typography>
     );
   }
+
+  const handleSearch = async () => {
+    if (searchTerm.trim() === "") return;
+    await dispatch(fetchProductsBySearch(searchTerm));
+  };
 
   return (
     <>
@@ -65,7 +77,7 @@ const ProductsPage = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  dispatch(fetchProductsBySearch(searchTerm));
+                  handleSearch();
                 }
               }}
               InputProps={{
@@ -87,9 +99,7 @@ const ProductsPage = () => {
             />
             <Button
               variant="contained"
-              onClick={() => {
-                dispatch(fetchProductsBySearch(searchTerm));
-              }}
+              onClick={handleSearch}
               sx={{
                 borderTopLeftRadius: "20px",
                 borderBottomLeftRadius: "20px",
@@ -102,59 +112,75 @@ const ProductsPage = () => {
           </Stack>
         </Stack>
 
-        <Grid container spacing={3}>
-          {products &&
-            products.map((product) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={product.id}>
-                <Box sx={{ height: "100%", display: "flex" }}>
-                  <Card
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.03)",
-                        boxShadow: 6,
-                      },
-                    }}
-                  >
-                    <CardMedia
-                      component="img"
-                      height="240"
-                      image={product.image}
-                      alt={product.name}
-                      sx={{ objectFit: "cover" }}
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography variant="h6">{product.title}</Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {product.description}
-                      </Typography>
-                      {/* <Typography variant="subtitle2" sx={{ mt: 1 }}>
-              دسته‌بندی: {product.category}
-            </Typography> */}
-                      <Box
-                        sx={{
-                          mt: 4,
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Typography variant="subtitle2">
-                          موجودی: {product.stock}
+        {Array.isArray(products) && products.length === 0 ? (
+          <Typography
+            variant="h6"
+            align="center"
+            color="text.secondary"
+            sx={{ mt: 8 }}
+          >
+            محصولی یافت نشد.
+          </Typography>
+        ) : (
+          <Grid container spacing={3}>
+            {products &&
+              products.map((product) => (
+                <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={product.id}>
+                  <Box sx={{ height: "100%", display: "flex" }}>
+                    <Card
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                        "&:hover": {
+                          transform: "scale(1.03)",
+                          boxShadow: 6,
+                        },
+                      }}
+                    >
+                      <CardMedia
+                        component="img"
+                        height="240"
+                        image={product.image}
+                        alt={product.name}
+                        sx={{ objectFit: "cover" }}
+                      />
+                      <CardContent sx={{ flexGrow: 1 }}>
+                        <Typography variant="h6">{product.title}</Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {product.description}
                         </Typography>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          {product.price.toLocaleString()} تومان
-                        </Typography>
-                      </Box>
-                    </CardContent>
-                  </Card>
-                </Box>
-              </Grid>
-            ))}
-        </Grid>
+                        <Box
+                          sx={{
+                            mt: 4,
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <Typography variant="subtitle2">
+                            موجودی: {product.stock}
+                          </Typography>
+                          <Typography sx={{ fontWeight: "bold" }}>
+                            {product.price.toLocaleString()} تومان
+                          </Typography>
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </Box>
+                </Grid>
+              ))}
+          </Grid>
+        )}
+        <Stack spacing={2} dir="ltr" sx={{ m: 4 }} alignItems="center">
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={(e, value) => setPage(value)}
+            shape="rounded"
+          />
+        </Stack>
       </Container>
     </>
   );

@@ -1,23 +1,24 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { act } from "react";
+// import { act } from "react";
 
 const initialState = {
   users: [],
+  // items: [],
+  total: 0,
   loading: false,
   error: null,
 };
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async (_, thunkAPI) => {
-    try {
-      const res = await axios.get("http://localhost:3000/products");
-      // console.log("Fetched products:", res.data);
-      return res.data;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
-    }
+  async ({ page, limit }) => {
+    const response = await axios.get(
+      `http://localhost:3000/products?_page=${page}&_limit=${limit}`
+    );
+    console.log("response.headers:", response.headers);
+    const totalCount = Number(response.headers["x-total-count"]);
+    return { data: response.data, total: totalCount };
   }
 );
 
@@ -89,12 +90,16 @@ const productsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
+        // state.loading = false;
+        // state.products = action.payload;
+        state.products = action.payload.data;
+        state.total = action.payload.total;
         state.loading = false;
-        state.products = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        // state.error = action.payload;
+        state.error = action.error.message;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
