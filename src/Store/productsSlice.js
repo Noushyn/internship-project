@@ -16,7 +16,6 @@ export const fetchProducts = createAsyncThunk(
     const response = await axios.get(
       `http://localhost:3000/products?_page=${page}&_limit=${limit}`
     );
-    console.log("response.headers:", response.headers);
     const totalCount = Number(response.headers["x-total-count"]);
     return { data: response.data, total: totalCount };
   }
@@ -70,7 +69,7 @@ export const fetchProductsBySearch = createAsyncThunk(
     try {
       const query = encodeURIComponent(searchTerm);
       const response = await axios.get(
-        `http://localhost:3000/products?title=${query}`
+        `http://localhost:3000/products?title_like=${query}`
       );
       return response.data;
     } catch (err) {
